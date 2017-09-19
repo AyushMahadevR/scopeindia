@@ -54,7 +54,7 @@
                           <input name="history" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                         </div>
                       </div>
-											<div class="form-group">
+						<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Doctor Name</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="doctor_id">
@@ -67,7 +67,7 @@
 											<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Medicine Name</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="medicine_id">
+                          <select class="form-control" name="medicine_id[]" multiple="multiple">
 														<?php foreach($medicines as $medicine) : ?>
 												        <option value="<?php echo $medicine['id'];?>"><?php echo $medicine['name'];?></option>
 												    <?php endforeach; ?>

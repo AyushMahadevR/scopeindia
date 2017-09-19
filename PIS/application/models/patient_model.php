@@ -17,6 +17,24 @@
   			return false;
   		}
     }
+	public function view($slug){
+		$this->db->where('pid',$slug);
+		$query = $this->db->get('pis_patient');
+		return $query->row();
+	}
+	public function update($slug,$data){
+		$this->db->where('pid',$slug);
+		$query = $this->db->update('pis_patient',$data);
+		if($query){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function delete($slug){
+		$this->db->where('pid',$slug);
+		$query = $this->db->delete('pis_patient');
+	}
     public function getdoctors(){
       $query = $this->db->get('pis_doctor');
       return $query->result_array();
