@@ -31,6 +31,7 @@
 			return false;
 		}
 	}
+	
 	public function delete($slug){
 		$this->db->where('pid',$slug);
 		$query = $this->db->delete('pis_patient');

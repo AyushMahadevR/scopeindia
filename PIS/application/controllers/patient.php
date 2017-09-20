@@ -7,6 +7,7 @@
       } else {
         //get patient data
         $data['patients'] = $this->patient_model->getlists();
+       // print_r($data['patients']);
 
         //display patients
         $this->load->view('templates/header');
@@ -40,7 +41,8 @@
     		$this->load->view('templates/footer');
     		} else {
     		  $medicine_id= $this->input->post('medicine_id');
-            $medi.="{";
+              $medi='';
+            //$medi.="{";
               for($i=0;$i<count($medicine_id);$i++)
                {
             if($i!=0){ 
@@ -48,8 +50,8 @@
             }
             $medi.= $medicine_id[$i];           
            }
-    		  $medi.="}"; 
-             print_r( $medi);
+    		  //$medi.="}"; 
+            // print_r( $medi);
     			//send in the data to model for insert
     			$data = array(
     				'pname' 			=> $this->input->post('pname'),
@@ -75,9 +77,13 @@
 	public function view($slug){
 		if(!$this->session->userdata('logged_in')){
         redirect('');
-      } else { 	
+      } else { 	//custom multiexplode function 
+	  
 	  //get specific patient data
 		$data['details'] = $this->patient_model->view($slug);
+		$med_id = $data['details']->medicine_id;
+		$data['med_arr'] = explode(",",$med_id);
+		$data['medicines'] = $this->patient_model->getmedicines();
 		// show the patient data
 		$this->load->view('templates/header');
 		$this->load->view('patient/view',$data);

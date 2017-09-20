@@ -11,7 +11,16 @@
 			<h4>Gender  : <?php echo $details->pgender;?></h4><br>
 			<h4>Medical History : <?php echo $details->history;?></h4><br>
 			<h4>Doctor ID : <?php echo $details->doctor_id;?></h4><br>
-			<h4>Medicine ID : <?php echo $details->medicine_id;?></h4><br>
+			<h4>Medicine ID : <?php
+						foreach($medicines as $arr){
+							foreach($med_arr as $med){ 
+							if($arr['id']== $med){
+								echo '<li class="btn btn-default"><a href="'.base_url().'index.php/medicine/view/'.$med.'">'. $arr['name'].'</a></li>';
+							}
+						}
+						}
+						
+				?>
 			<h4>Test ID : <?php echo $details->test_id;?></h4><br>
 			 <div class="ln_solid"></div>
 					<form id="demo-form4" data-parsley-validate class="form-horizontal form-label-left" method ="post" action="<?php echo base_url();?>index.php/patient/delete/<?php echo $details->pid;?>">

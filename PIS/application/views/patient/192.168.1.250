@@ -1,0 +1,7 @@
+<?php
+$age=10;
+for each($age as $x=>$y)
+{ echo "key=".$x.","
+		"value".$y;
+		echo "<br>";
+		?>
