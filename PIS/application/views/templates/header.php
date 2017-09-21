@@ -62,7 +62,7 @@
                 <ul class="nav side-menu additional-menu">
                   <li><a href="<?php echo base_url();?>index.php/doctors/index"><i class="fa fa-user-md"></i> Doctor <span class="fa fa-angle-right"></span></a>
                   </li>
-                  <li><a><i class="fa fa-calendar-check-o"></i> Appointment <span class="fa fa-angle-right"></span></a>
+                  <li><a href="<?php echo base_url();?>index.php/appointment/index"><i class="fa fa-calendar-check-o"></i> Appointment <span class="fa fa-angle-right"></span></a>
                   </li>
                   <li><a href="<?php echo base_url();?>index.php/patient/index"><i class="fa fa-ambulance"></i> Patient <span class="fa fa-angle-right"></span></a>
                   </li>
