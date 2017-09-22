@@ -35,11 +35,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="gender" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="pgender" value="Male"> &nbsp; Male &nbsp;
+                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" >
+                              <input type="radio" name="pgender" value="Male" <?php if($details->pgender == "Male"){echo 'checked="checked"';}?>> &nbsp; Male &nbsp;
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="pgender" value="Female"> Female
+                              <input type="radio" name="pgender" value="Female" <?php if($details->pgender == "Female"){echo 'checked="checked"';} ?>> Female
                             </label>
                           </div>
                         </div>
@@ -72,6 +72,7 @@
                           <input name="test_id" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text"value="<?php echo $details->test_id;?>">
                         </div>
                       </div>
+					  
 			 <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

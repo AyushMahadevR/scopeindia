@@ -18,9 +18,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Patient Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                         <select class="form-control" name="patient_id" value ="<?php echo $slug;?>">
+                         <select class="form-control" name="patient_id" >
 														<?php foreach($patients as $patient) : ?>
-												        <option value="<?php echo $patient['pid'];?>"><?php echo $patient['pname'];?></option>
+												        <option <?php if($patient['pid'] == $details['patient_id']){echo 'selected="selected"';}?>value="<?php echo $patient['pid'];?>"><?php echo $patient['pname'];?></option>
 												    <?php endforeach; ?>
                           </select> 
                         </div>
@@ -30,7 +30,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="doctor_id">
 														<?php foreach($doctors as $doctor) : ?>
-												        <option value="<?php echo $doctor['id'];?>"><?php echo $doctor['name'];?></option>
+												        <option <?php if($doctor['id'] == $details['id']){echo 'selected="selected"';}?> value="<?php echo $doctor['id'];?>"><?php echo $doctor['name'];?></option>
 												    <?php endforeach; ?>
                           </select>
                         </div>
@@ -38,7 +38,12 @@
 											<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Appointment Time <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="time" required="required" class="form-control col-md-7 col-xs-12">
+                           <div class='input-group date' id='myDatepicker'>
+                            <input type='text' name='time' class="form-control" value="<?php echo $details['time'];?>" />
+                            <span class="input-group-addon">
+                               <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

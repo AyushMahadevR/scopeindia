@@ -47,10 +47,17 @@
     <script src="<?php echo base_url();?>assets/vendors/moment/min/moment.min.js"></script>
     <script src="<?php echo base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js">
-
     </script>
+	<!-- Cropper -->
+    <script src="<?php echo base_url();?>assets/vendors/cropper/dist/cropper.min.js"></script>
+	<!-- bootstrap-datetimepicker -->    
+    <script src="<?php echo base_url();?>assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js">
+	</script>
+	<script> 
+	  $('#myDatepicker').datetimepicker();
+	  </script>
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url();?>assets/build/js/custom.min.js"></script>
-
+	
   </body>
 </html>

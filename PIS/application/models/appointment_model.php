@@ -28,13 +28,22 @@
 		return $query->row();
 	}
 	public function update($slug,$data){
-		$this->db->where('pid',$slug);
-		$query = $this->db->update('pis_patient',$data);
+		$this->db->where('aid',$slug);
+		$query = $this->db->update('pis_appointment',$data);
 		if($query){
 			return true;
 		} else {
 			return false;
 		}
+	}
+	public function currentapp($slug){
+		$this->db->select('*');
+      $this->db->from('pis_appointment');
+      $this->db->join('pis_doctor','pis_doctor.id = pis_appointment.doctor_id');
+	  $this->db->join('pis_patient','pis_patient.pid = pis_appointment.patient_id'); 
+	  $this->db->where('aid',$slug);
+      $query = $this->db->get();
+	  return $query->row_array();
 	}
 	public function getpatient(){
 		$query = $this->db->get('pis_patient');

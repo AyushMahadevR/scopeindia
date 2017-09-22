@@ -82,7 +82,7 @@
 			if($this->form_validation->run() == FALSE){
 			   //get patient list 
 		$data['patients'] = $this->appointment_model->getpatient();
-		$data['details'] = $this->appointment_model->view($slug);
+		$data['details'] = $this->appointment_model->currentapp($slug);
 		$data['slug'] = $slug;
 		print_r($data['details']);
 		//get doctors list
@@ -95,20 +95,16 @@
 			} else {
 			//get new userdata
 			$data = array(
-				'pname' 			=> $this->input->post('pname'),
-				'paddress' 		=> $this->input->post('paddress'),
-				'page' => $this->input->post('page'),
-				'pgender' 	=> $this->input->post('pgender'),
-				'history' 	=>$this->input->post('history'),
-				'doctor_id' 	=> $this->input->post('doctor_id'),
-				'medicine_id' 	=> $this->input->post('medicine_id'),
-				'test_id' 	=> $this->input->post('test_id'),
+				'patient_id' 			=> $this->input->post('patient_id'),
+				'doctor_id' 		=> $this->input->post('doctor_id'),
+				'time' => $this->input->post('time')
+				
 			);
-			$update = $this->patient_model->update($slug,$data);
+			$update = $this->appointment_model->update($slug,$data);
 			if($update){
-				redirect('index.php/patient/index');
+				redirect('index.php/appointment/index');
 			} else {
-				redirect('index.php/patient/index');
+				redirect('index.php/appointment/index');
 			}
 		  }
 		}
