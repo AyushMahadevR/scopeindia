@@ -48,4 +48,14 @@
       $query = $this->db->get('pis_test');
       return $query->result_array();
     }
+	public function getdoctor($id){
+		$this->db->where('id',$id);
+		$query = $this->db->get('pis_doctor');
+		return $query->row();
+	}
+	public function gettest($id){
+		$this->db->where('id',$id);
+		$query = $this->db->get('pis_test');
+		return $query->row();
+	}
   }

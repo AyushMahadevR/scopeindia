@@ -77,13 +77,28 @@
 	public function view($slug){
 		if(!$this->session->userdata('logged_in')){
         redirect('');
-      } else { 	//custom multiexplode function 
+      } else { 	
 	  
 	  //get specific patient data
 		$data['details'] = $this->patient_model->view($slug);
 		$med_id = $data['details']->medicine_id;
+		//get doctor details
+		$doc_id = $data['details']->doctor_id;
+		$data['doctor'] = $this->patient_model->getdoctor($doc_id);
+		//get test details
+		$test_id = $data['details']->test_id;
+		$data['test'] = $this->patient_model->gettest($test_id);
 		$data['med_arr'] = explode(",",$med_id);
 		$data['medicines'] = $this->patient_model->getmedicines();
+		//colorful buttons
+		$data['btn'] = array(
+			'btn-primary',
+			'btn-success',
+			'btn-info',
+			'btn-warning',
+			'btn-danger',
+			'btn-link'
+		);
 		// show the patient data
 		$this->load->view('templates/header');
 		$this->load->view('patient/view',$data);
@@ -121,7 +136,7 @@
 				'history' 	=>$this->input->post('history'),
 				'doctor_id' 	=> $this->input->post('doctor_id'),
 				'medicine_id' 	=> $this->input->post('medicine_id'),
-				'test_id' 	=> $this->input->post('test_id'),
+				'test_id' 	=> $this->input->post('test_id')
 			);
 			$update = $this->patient_model->update($slug,$data);
 			if($update){
