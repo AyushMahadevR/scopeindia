@@ -84,7 +84,6 @@
 		$data['patients'] = $this->appointment_model->getpatient();
 		$data['details'] = $this->appointment_model->currentapp($slug);
 		$data['slug'] = $slug;
-		print_r($data['details']);
 		//get doctors list
         $data['doctors'] = $this->patient_model->getdoctors();
 		
